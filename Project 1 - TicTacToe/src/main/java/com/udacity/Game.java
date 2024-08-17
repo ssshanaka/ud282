@@ -151,6 +151,60 @@ public class Game {
     public String checkGameWinner(char [][]grid){
         String result = "None";
         //Student code goes here ...
+
+        //comment code below was written by Sandaruwan Shanaka.
+        
+        // for (int i=0; i<3; i++) {
+        //         if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]) {
+        //             return grid[i][0] == 'x' ? "x wins" : "o wins";
+        //     }
+        // }
+
+        // for (int j=0; j<3; j++) {
+        //         if (grid[0][j] == grid[1][j] && grid[1][j] == grid[2][j]) {
+        //             return grid[0][j] == 'x' ? "x wins" : "o wins";
+        //     }
+        // }
+
+        // if (grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] || grid[2][0] == grid[1][1] && grid[1][1] == grid[0][2]) {
+        //     return grid[1][1] == 'x' ? "x wins" : "o wins";
+        // }
+
+        // // Check for Free Spots
+        // if (freeSpots == 0) {
+        //     return "Tie";
+        // }
+
+        //below code is the correct version.
+
+        for (int i=0; i<3; i++) {
+                if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2] && grid[i][2] == 'x') {
+                    result = "x wins";
+                } else {
+                    result = "o wins";
+                }
+        }
+
+        for (int j=0; j<3; j++) {
+                if (grid[0][j] == grid[1][j] && grid[1][j] == grid[2][j] && grid[2][j] == 'x') {
+                    result = "x wins";
+                } else {
+                    result = "o wins";
+                }
+        }
+
+        if (grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] || grid[2][0] == grid[1][1] && grid[1][1] == grid[0][2] && grid[0][2] == 'x') {
+                result = "x wins";
+            } else {
+                result = "o wins";
+            }
+
+        // Check for Free Spots
+        if (freeSpots == 0) {
+            result = "Tie";
+        }
+
+
         return result;
     }
 
